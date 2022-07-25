@@ -95,11 +95,14 @@ const Products = () => {
                     height="250px"
                   />
                   <div class="card-body">
-                    <h5 class="card-title mb-0">
-                      {product.title.substring(0, 12)}...
-                    </h5>
+                    <h6 class="card-title mb-0">{product.title}</h6>
                     <p class="card-text lead fw-bold">${product.price}</p>
-                   <a to='#' class="btn btn-outline-dark">Buy Now</a>
+                    <NavLink
+                      to={`/products/${product.id}`}
+                      className="btn btn-outline-dark"
+                    >
+                      Buy Now
+                    </NavLink>
                   </div>
                 </div>
               </div>
@@ -112,9 +115,7 @@ const Products = () => {
   return (
     <div>
       <div className="container my-5 py-5">
-        <div className="row">
-          
-        </div>
+        <div className="row"></div>
         <div className="row justify-content-center">
           {loading ? <Loading /> : <ShowProducts />}
         </div>

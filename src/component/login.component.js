@@ -1,6 +1,8 @@
 import React, { useReducer, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  let navigate = useNavigate();
   const [formInput, setFormInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
@@ -18,8 +20,9 @@ const LoginPage = () => {
     } = { formInput };
     console.log(username, password);
     if (username == "eadmin" && password == "eadmin@123") {
-      alert("success");
-      return;
+      // history.push("/home");
+      navigate("/products");
+      // return;
     }
     setError(true);
   };
